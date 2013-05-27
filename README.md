@@ -1,4 +1,4 @@
-# Building Bioinformatics Solutions (2nd Edition)
+# Building Bioinformatics Solutions
 
 This repository contains all the code examples from the book, Building Bioinformatics Solutions (2nd Edition).
 
