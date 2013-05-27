@@ -2,7 +2,7 @@
 
 This repository contains all the code examples from the book, Building Bioinformatics Solutions (2nd Edition).
 
-# LICENSE
+# License
 
 Copyright (C) 2013, Conrad Bessant, Darren Oakley, Ian Shadforth and Oxford University Press.
 
