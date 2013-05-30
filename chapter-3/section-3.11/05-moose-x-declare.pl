@@ -33,6 +33,6 @@ class Cat extends Animal {
 my $sam = Dog->new(name => 'Sam', breed => 'Terrier', age => 5);
 my $tom = Cat->new(name => 'Gorbypuff', breed => 'Persian', age => 5);
 
-print $sam->to_string . “\n";
+print $sam->to_string . "\n";
 print $tom->to_string . "\n";
 
