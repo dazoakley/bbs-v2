@@ -1,0 +1,5 @@
+DELETE FROM Experiment;
+DELETE FROM Kit_order;
+DELETE FROM Supplier;
+DELETE FROM Kit;
+DELETE FROM Scientist;

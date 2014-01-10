@@ -1,0 +1,78 @@
+CREATE TABLE Scientist (
+ 	email VARCHAR(255) NOT NULL,
+ 	given_name VARCHAR(255), 
+ 	family_name VARCHAR(255), 
+ 	title VARCHAR(255), 
+ 	department VARCHAR(255), 
+ 	tel_country INT, 
+ 	tel_area INT, 
+ 	tel_number INT,
+ 	PRIMARY KEY (email)
+);
+
+CREATE TABLE Kit (
+ 	manufacturer VARCHAR(255) NOT NULL,
+ 	name VARCHAR(255) NOT NULL,
+ 	kit_cost DECIMAL(6,2),
+ 	buffer VARCHAR(255),
+ 	buffer_conc FLOAT,
+ 	enzyme VARCHAR(255),
+ 	enzyme_conc FLOAT,
+ 	nucl_mix VARCHAR(255),
+ 	nucl_conc FLOAT,
+ 	PRIMARY KEY (manufacturer, name)
+);
+
+CREATE TABLE Supplier (
+ 	supplier_name VARCHAR(255) NOT NULL,
+ 	supp_building VARCHAR(255),
+ 	supp_street VARCHAR(255),
+ 	supp_town VARCHAR(255),
+ 	supp_city VARCHAR(255),
+ 	supp_postcode VARCHAR(255),
+ 	supp_country VARCHAR(255),
+ 	PRIMARY KEY (supplier_name)
+);
+CREATE TABLE Kit_order (
+ 	order_number CHAR(16) NOT NULL,
+ 	manufacturer VARCHAR(255),
+ 	kit_name VARCHAR(255),
+ 	supplier VARCHAR(255),
+ 	PRIMARY KEY (order_number),
+ 	FOREIGN KEY (manufacturer, kit_name) 
+ 		REFERENCES Kit(manufacturer, name),
+ 	FOREIGN KEY (supplier)
+ 		REFERENCES Supplier(supplier_name)
+);
+
+CREATE TABLE Experiment (
+ 	ID INT NOT NULL AUTO_INCREMENT,
+ 	date DATE,
+ 	time TIME,
+ 	sequence VARCHAR(255),
+ 	purpose TEXT,
+ 	kit_order_number CHAR(16),
+        denature_temp INT,
+        denature_time INT,
+        anneal_temp INT,
+        anneal_time INT,
+        elongate_temp INT,
+        elongate_time INT,
+        cycles INT, 
+        completion_temp INT,
+        completion_time INT,
+        primer_1 VARCHAR(255),
+        primer_2 VARCHAR(255),
+        primer_conc FLOAT,
+        design_software VARCHAR(255),
+        primer_supplier VARCHAR(255),
+        primer_cost DECIMAL(6,2),
+        gel_image BLOB,
+        assessment TEXT,
+ 	scientist_email VARCHAR(255),
+ 	PRIMARY KEY (ID),
+ 	FOREIGN KEY (kit_order_number)
+ 		REFERENCES Kit_order(order_number),
+ 	FOREIGN KEY (scientist_email)
+ 		REFERENCES Scientist(email)
+);
