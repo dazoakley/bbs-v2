@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-
+ 
 import MySQLdb
 
 # connect to the database
