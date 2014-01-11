@@ -14,7 +14,7 @@ cur.execute("SELECT * FROM Scientist")
 
 # fetch all the rows of data
 for r in cur.fetchall():
-    print "{0} {1}".format(r["title"], r["family_name"])
+  print "{0} {1}".format(r["title"], r["family_name"])
 
 # close the database connection
 con.close()

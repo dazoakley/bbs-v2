@@ -3,29 +3,29 @@ package EnsemblTools;
 use MooseX::Declare;
 
 class IdParser {
-	has 'id' => (is => 'ro', isa => 'Str', required => 1);
+  has 'id' => (is => 'ro', isa => 'Str', required => 1);
 
-	method is_valid_id {
-		if ($self->id =~ /^ENS\D*[G|T]\d+$/) {
-			return 1;
-		} else {
-			return 0;
-		}
-	}
+  method is_valid_id {
+    if ($self->id =~ /^ENS\D*[G|T]\d+$/) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
 
-	method species {
-		if ($self->is_valid_id) {
-			if ($self->id =~ /^ENS(\D*)[G|T]\d+$/) {
-				if ($1 eq '') {
-					return 'Human';
-				} elsif ($1 eq 'MUS') {
-					return 'Mouse';
-				} else {
-					return 'Unknown';
-				}
-			}
-		}
-	}
+  method species {
+    if ($self->is_valid_id) {
+      if ($self->id =~ /^ENS(\D*)[G|T]\d+$/) {
+        if ($1 eq '') {
+          return 'Human';
+        } elsif ($1 eq 'MUS') {
+          return 'Mouse';
+        } else {
+          return 'Unknown';
+        }
+      }
+    }
+  }
 }
 1;
 
@@ -47,7 +47,7 @@ EnsemblTools::IdParser - a helper object for parsing Ensembl ID's.
 Create a new instance of EnsemblTools::IdParser. This method
 requires an id to be passed in.
 
-	my $id_parser = IdParser->new(id => 'ENSG00000139618');
+  my $id_parser = IdParser->new(id => 'ENSG00000139618');
 
 =item is_valid_id()
 
